@@ -24,6 +24,6 @@ app.use(morgan('combined'))
 app.use(cors())
 app.use(cookieParser())
 
-// TODO: Add Routes
+// TODO: app.use Routes
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
