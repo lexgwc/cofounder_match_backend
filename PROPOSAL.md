@@ -14,13 +14,13 @@ Project Description My app, "Cofounder Connect," is designed to bridge the gap b
 - AAU, I should be able to go to a page and see all profiles of other users - so that I can browse through them
 - AAU, I should be able to filter which profiles I see by criteria so that I - can narrow my search
 - AAU, I should be able to see emails and scheduling links of users I am interested in talking to
+- AAU, I should be able to add profiles to my favorites so that I can revisit them later
+- AAU, I should be able to go to a page where I can see a list of my favorites
 - AAU, I should be able to delete profiles from my favorites
+- AAU, I should be able to search profiles by name so that I can search specific people I know
 
 **Stretch goals:**
 
-- AAU, I should be able to search profiles by name so that I can search specific people I know
-- AAU, I should be able to add profiles to my favorites so that I can revisit them later
-- AAU, I should be able to go to a page where I can see a list of my favorites
 - AAU, I should be able to message people I'm interested in in-app
 - AAU, I should be able to go to an inbox page and see past sent and received messages
 - AAU, I want to be able to swipe left/right on profiles tinder style (left to skip, right to favorite/connect)
