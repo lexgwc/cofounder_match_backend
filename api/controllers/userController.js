@@ -1,13 +1,9 @@
-//TODO: functions to create and export are: updateUser, deleteUser
-// Make sure controller logic fetches the user ID from the authentication token or session (typically done within the isUserLoggedIn middleware) to identify which user to update or delete.
-
 import User from '../models/userModel.js';
-
-// All below needs to be checked and verified
 
 export const updateUser = async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const userId = req.user.id;
+    const user = await User.findByIdAndUpdate(userId, req.body, { new: true });
     if (user) {
       res.json(user);
     } else {
