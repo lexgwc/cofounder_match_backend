@@ -1,3 +1,6 @@
+//TODO: functions to create and export are getFavorite, addFavorite, removeFavorite
+
+
 import User from '../models/userModel.js'
 import Profile from '../models/profileModel.js'
 
@@ -44,3 +47,5 @@ export const removeFavorite = async (req, res) => {
       res.status(500).json({ message: 'Error removing favorite', error: error.message });
   }
 };
+
+export const getFavorites

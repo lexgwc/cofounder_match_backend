@@ -1,19 +1,42 @@
-//Not complete, from chatgpt. Works in collaborateion with the getFilteredProfiles function in controller.
+import express from 'express';
+import {
+  updateUser,
+  deleteUser
+} from '../controllers/userController.js'
+import verifyAuth from '../middleware/verifyAuth.js'
 
-const { getFilteredProfiles } = require('./path/to/your/controller');
+const router = express.Router();
 
-// Define the route
-router.get('/profiles', async (req, res) => {
-  try {
-    const school = req.query.school;
-    const isTechnical = req.query.isTechnical === 'true'; // Convert query param to boolean
-    const gender = req.query.gender;
+// Routes for User model, with isUserLoggedIn middleware to protect the routes
+router.put('/user', verifyAuth, updateUser)
+router.delete('/user', verifyAuth, deleteUser) 
 
-    // Call a function to get filtered profiles based on the criteria
-    const profiles = await getFilteredProfiles({ school, isTechnical, gender });
+export default router;
 
-    res.json(profiles);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-})
+
+
+
+
+// EXAMPLE FROM EMRE BLOGS ROUTER
+// // Import modules
+// import { Router } from 'express'
+// import { getBlogs, getBlog, createBlog, updateBlog, deleteBlog, getAuthorBlogs } from '../controllers/blogsController.js'
+// import verifyAuth from '../middleware/verifyAuth.js'
+
+// const router = Router()
+
+// // GET routes
+// router.get('/', verifyAuth, getBlogs)
+// router.get('/:id', verifyAuth, getBlog)
+// router.get('/authorBlogs/:authorId', verifyAuth, getAuthorBlogs)
+
+// // POST routes
+// router.post('/', verifyAuth, createBlog)
+
+// // PUT routes
+// router.put('/:id', verifyAuth, updateBlog)
+
+// // DELETE route
+// router.delete('/:id', verifyAuth, deleteBlog)
+
+// export default router

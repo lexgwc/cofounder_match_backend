@@ -8,8 +8,8 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 
 // TODO: Import routes
-// e.g. import userRoutes from './api/routes/userRoutes.js';
-// e.g. import authRouters from './api/routes/authRoutes.js'
+import userRoutes from './api/routes/userRoutes.js';
+import authRoutes from './api/routes/authRoutes.js'
 
 // Import database connection
 import './config/db.js'
@@ -25,5 +25,7 @@ app.use(cors())
 app.use(cookieParser())
 
 // TODO: app.use Routes
+app.use('/auth', authRoutes)
+app.use('/cofounders', userRoutes)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
