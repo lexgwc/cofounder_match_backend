@@ -4,7 +4,6 @@ import 'dotenv/config.js';
 const SECRET = process.env.SECRET;
 
 const verifyAuth = (req, res, next) => {
-  console.log(req.headers.authorization);
   const tokenHeader = req.headers.authorization;
   if (!tokenHeader) {
     return res.status(401).json({

@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const profileSchema = new mongoose.Schema({
+const profileSchema = new Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -101,8 +101,7 @@ const profileSchema = new mongoose.Schema({
       ],
       required: true },
   cofounderDesiredQualities: { type: String, required: false },
-  impressiveAccomplishment: { type: String, required: false },
-  lastSeen: { type: Date, required: true }
+  impressiveAccomplishment: { type: String, required: false }
 })
 
 const Profile = mongoose.model('Profile', profileSchema);

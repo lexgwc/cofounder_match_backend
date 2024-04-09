@@ -1,17 +1,19 @@
-//TODO import verifyAuth
+import express from 'express';
+import {
+  getProfiles,
+  addProfile,
+  // updateProfile,
+  // deleteProfile
+} from '../controllers/profileController.js'
+import verifyAuth from '../middleware/verifyAuth.js'
 
-// Define the route
-router.get('/profiles', async (req, res) => {
-  try {
-    const school = req.query.school;
-    const isTechnical = req.query.isTechnical === 'true'; // Convert query param to boolean
-    const gender = req.query.gender;
+const router = express.Router();
 
-    // Call a function to get filtered profiles based on the criteria
-    const profiles = await getFilteredProfiles({ school, isTechnical, gender });
 
-    res.json(profiles);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-})
+// Protected routes
+router.post('/profile', verifyAuth, addProfile)
+router.get('/profile', verifyAuth, getProfiles) 
+// router.put('/profile', verifyAuth, updateProfile)
+// router.delete('/profile', verifyAuth, deleteProfile) 
+
+export default router;
