@@ -11,9 +11,9 @@ const router = express.Router();
 
 
 // Protected routes
-router.post('/profile', verifyAuth, addProfile)
-router.get('/profile', verifyAuth, getProfiles) 
-router.put('/profile', verifyAuth, updateProfile)
-router.delete('/profile', verifyAuth, deleteProfile) 
+router.post('/profile', addProfile) //addback verifyAuth
+router.get('/profile', getProfiles) //addback verifyAuth
+router.put('/profile', updateProfile) //addback verifyAuth
+router.delete('/profile', deleteProfile) //addback verifyAuth
 
 export default router;
