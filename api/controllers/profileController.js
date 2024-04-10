@@ -30,7 +30,7 @@ export const addProfile = async (req, res) => {
 
 export const getProfiles = async (req, res) => {
   try {
-    const { currentSchool, isTechnical, gender } = req.query;
+    const { currentSchool, isTechnical, timelineForFulltime, industryInterests } = req.query;
 
     let query = {}; // Initialize query object
 
@@ -46,8 +46,12 @@ export const getProfiles = async (req, res) => {
       query.isTechnical = isTechnical 
     }
 
-    if (gender) {
-      query.gender = gender; 
+    if (timelineForFulltime) {
+      query.timelineForFulltime = timelineForFulltime; 
+    }
+
+    if (industryInterests) {
+      query.industryInterests = industryInterests; 
     }
 
     const profiles = await Profile.find(query);
