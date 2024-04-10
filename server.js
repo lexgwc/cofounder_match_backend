@@ -11,6 +11,8 @@ import cookieParser from 'cookie-parser'
 import userRoutes from './api/routes/userRoutes.js';
 import authRoutes from './api/routes/authRoutes.js';
 import profileRoutes from './api/routes/profileRoutes.js';
+import schoolRoutes from './api/routes/schoolRoutes.js';
+import helperRoutes from './api/routes/helperRoutes.js';
 
 // Import database connection
 import './config/db.js'
@@ -29,5 +31,7 @@ app.use(cookieParser())
 app.use('/auth', authRoutes)
 app.use('/cofounders', userRoutes)
 app.use('/cofounders', profileRoutes)
+app.use('/cofounders', schoolRoutes)
+app.use('/cofounders', helperRoutes)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
