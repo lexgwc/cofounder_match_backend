@@ -25,7 +25,7 @@ app.use(morgan('combined'))
 app.use(cors())
 app.use(cookieParser())
 
-// TODO: app.use Routes
+// Routes
 app.use('/auth', authRoutes)
 app.use('/cofounders', userRoutes)
 app.use('/cofounders', profileRoutes)
