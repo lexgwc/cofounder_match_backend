@@ -7,7 +7,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 
-// TODO: Import routes
+// Import routes
 import userRoutes from './api/routes/userRoutes.js';
 import authRoutes from './api/routes/authRoutes.js';
 import profileRoutes from './api/routes/profileRoutes.js';
