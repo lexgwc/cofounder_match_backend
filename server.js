@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(morgan('combined'))
-app.use(cors())
+app.use(cors({origin: 'http://127.0.0.1:5500'}))
 app.use(cookieParser())
 
 // Routes
