@@ -14,7 +14,7 @@ const profileSchema = new Schema({
   currentSchool: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'School',
-    required: true
+    required: false
   },
   programType: {type: String, required: true},
   industryInterests: {
