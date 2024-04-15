@@ -4,12 +4,16 @@ import School from '../models/schoolModel.js'
 export const addProfile = async (req, res) => {
   try {
     const { currentSchool, ...profileData } = req.body;
+    
     // Use the userId from req.user.id, which is set by the verifyAuth middleware
     const userId = req.user.id;
 
+    console.log(`profileData: ${JSON.stringify(profileData, null, 2)}`)
+    console.log(`userId: ${userId}`)
+    console.log(`currentSchool: ${currentSchool}`)
     // Verify the school exists and get its ObjectId
     const school = await School.findOne({ schoolName: currentSchool })
-    console.log(`School: ${school}`);
+    console.log('School: ' + school)
     if (!school) {
       return res.status(404).json({ message: "School not found" });
     }
@@ -21,6 +25,7 @@ export const addProfile = async (req, res) => {
     });
 
     await newProfile.save();
+    console.log(newProfile)
     res.status(201).json(newProfile);
   } catch (error) {
     console.error(error);
@@ -90,13 +95,15 @@ export const updateProfile = async (req, res) => {
     const userId = req.user.id;
     console.log(`userId: ${userId}`)
     const { currentSchool, ...profileData } = req.body;
+    console.log(currentSchool)
 
     let updateData = { ...profileData };
     console.log(updateData)
 
     // Conditionally add currentSchool to updateData if it's included in the request
     if (currentSchool) {
-      const school = await School.findOne({ name: currentSchool });
+      const school = await School.findOne({ schoolName: currentSchool });
+      console.log(school)
       if (!school) {
         return res.status(404).json({ message: "School not found" });
       }

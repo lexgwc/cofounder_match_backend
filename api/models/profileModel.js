@@ -59,7 +59,7 @@ const profileSchema = new Schema({
         'Other'
       ]
     }],
-    required: true },
+    required: false },
   isTechnical: { type: Boolean, required: true },
   linkedinURL: { type: String, required: false },
   email: { type: String, required: true },
@@ -89,7 +89,7 @@ const profileSchema = new Schema({
       'Finance and Fundraising',
       'Legal and Compliance'
     ]}],
-    required: true},
+    required: false},
     timelineForFulltime: {
       type: String,
       enum: [
